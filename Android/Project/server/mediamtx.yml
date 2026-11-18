@@ -1,0 +1,27 @@
+# MultiCam local Wi-Fi receiver.
+# Change both passwords before using this on a network with other people.
+
+logLevel: info
+rtmp: yes
+rtmpAddress: :1935
+
+# The Android app publishes to cam1..cam4.
+# OBS reads those same paths using the viewer account.
+authMethod: internal
+authInternalUsers:
+  - user: camera
+    pass: change-this-password
+    ips: []
+    permissions:
+      - action: publish
+        path: "~^cam[1-4]$"
+
+  - user: viewer
+    pass: change-this-viewer-password
+    ips: []
+    permissions:
+      - action: read
+        path: "~^cam[1-4]$"
+
+paths:
+  all_others:
