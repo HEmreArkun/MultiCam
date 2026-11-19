@@ -1,0 +1,23 @@
+# MultiCam local Wi-Fi RTMP receiver. Generated credentials are unique per install.
+logLevel: info
+rtmp: yes
+rtmpAddress: :1935
+
+authMethod: internal
+authInternalUsers:
+  - user: camera
+    pass: "{{CAMERA_PASSWORD}}"
+    ips: []
+    permissions:
+      - action: publish
+        path: "~^cam[1-4]$"
+
+  - user: viewer
+    pass: "{{VIEWER_PASSWORD}}"
+    ips: []
+    permissions:
+      - action: read
+        path: "~^cam[1-4]$"
+
+paths:
+  all_others:
